@@ -42,6 +42,11 @@ public class CommandManager {
             return;
         }
 
+        if (inputArgs.length == 0) {
+            StressBot.LOGGER.warning("You need to specify a command executor");
+            return;
+        }
+
         Optional<CommandExecutor> commandExecutorOpt = commandExecutors.stream()
                 .filter(executor -> executor.getLabel().equals(inputArgs[1].toLowerCase()))
                 .findFirst();
